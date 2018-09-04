@@ -6,7 +6,6 @@
 
 * Compared implementations
   * « mine » : oslandia
-  * "mine_altls": alternative linestring implementation (as a double std::vector of X and Y rather than a std::list of points)
 
 * Rasters :
   * SRTM_36_03.tif
