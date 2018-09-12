@@ -20,15 +20,15 @@ gdal_contour -i 10 raster.tif out.shp
       
 |            | time(mine) | mem(mine) | count(mine) | time(gdal) | mem(gdal) | count(gdal) |
 |------------|------------|-----------|-------------|------------|-----------|-------------|
-| SRTM_36_03 | 6.5s       | 91MB      | 129495      | 24s        | 88MB      | 128529      |
-| SRTM_36_04 | 38s        | 320MB     | 389866      | 146s       | 274MB     | 384121      |
-| SRTM_37_03 | 19.5s      | 443MB     | 341577      | 100s       | 367MB     | 343143      |
+| SRTM_36_03 | 6.5s       | 91MB      | 128630      | 24s        | 88MB      | 128529      |
+| SRTM_36_04 | 38s        | 320MB     | 384139      | 146s       | 274MB     | 384121      |
+| SRTM_37_03 | 19.5s      | 443MB     | 343151      | 100s       | 367MB     | 343143      |
 
 
 The new implementation is way faster than the initial one. About **3 times faster**, and up to **5 times** in certain cases. However, it demands a little bit more RAM (up to about 20% more).
-The new implementation generates a similar amount of features (+ or - 1%).
+The new implementation generates a similar amount of features (less than 0.1% of difference).
 
-### Valgrind/massif outputs
+### Valgrind/massif output
 
 Mine
 ```
@@ -98,19 +98,4 @@ ms_print arguments: massif.out.13275
      0                                                                   103.3
 ```
 
-## Behaviour comparison
-
-On saddle points, the two implementations may have different behaviours.
-
-(Illustrations made on another raster)
-
-Legend : in green, « mine », in blue « gdal »
-
-![cmp1](images/comparison_1.png)
-
-![cmp2](images/comparison_2.png)
-
-![cmp3](images/comparison_3.png)
-
-![cmp4](images/comparison_4.png)
 
